@@ -2,18 +2,18 @@ def union(arr1, arr2):
     full_arr = arr1 + arr2
 
     final_arr = merge_sort(full_arr)
-    while no_duplicates(final_arr) == True:
-        for i in range(len(final_arr)):
+    while duplicates(final_arr) == True:
+        for i in range(0, len(final_arr)-1):
             if final_arr[i] == final_arr[i+1]:
                 final_arr.pop(i)
-            break
+                break
+            
     return final_arr
-def no_duplicates(arr):
-    for i in range(len(arr)):
+def duplicates(arr):
+    for i in range(0, len(arr)-1):
         if arr[i] == arr[i+1]:
-            return False
-        else:
             return True
+    return False
 def merge_sort(arr):
     if len(arr) < 2:
         return arr
